@@ -1,0 +1,48 @@
+.list 
+{
+    display: flex;
+    justify-content: center; /* Centers the images horizontally */
+    align-items: center; /* Centers the images vertically (if needed) */
+    gap: 20px; /* Adds space between the images */
+    flex-wrap: wrap; /* Allows wrapping if the screen is too small */
+    min-height: 100vh; /* Optional: Centers the images vertically within the viewport */
+}
+
+.item img 
+{
+    margin-top: 50px;
+    width: 150px;           /* Set image width */
+    height: 300px;          /* Set image height */
+    object-fit: cover;      /* Ensure the image maintains its aspect ratio */
+}
+
+.list
+{
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+.list .item
+{
+    transition: 0.5s;
+    filter: brightness(0);
+}
+
+.list .item:hover
+{
+    filter: brightness(1);
+    transform: translateZ(200px);
+}
+
+.list .item:hover + *
+{
+    filter: brightness(0.6);
+    transform: translateZ(150px);
+    transform: rotateY(20deg);
+}
+
+.list .item:hover + * + *
+{
+    filter: brightness(0.3);
+    transform: translateZ(50px);
+    transform: rotateY(10deg)
+}
