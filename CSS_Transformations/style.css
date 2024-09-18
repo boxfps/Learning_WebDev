@@ -16,30 +16,34 @@
     object-fit: cover;      /* Ensure the image maintains its aspect ratio */
 }
 
+/* This will allow you to move your picture up on the z axis, effectively making it larger */
 .list
 {
     transform-style: preserve-3d;
     transform: perspective(1000px);
 }
+
+/* This will set the default brightness to 0, and make the transition smooth */
 .list .item
 {
     transition: 0.5s;
     filter: brightness(0);
 }
 
+/* This will cause the brightness to transition to full and move up the Z axis when you hover */
 .list .item:hover
 {
     filter: brightness(1);
     transform: translateZ(200px);
 }
-
+/* The + * will take the element directly to the RIGHT of the hovered element, and apply these effects (only use + * if you can guarantee the next element matches */
 .list .item:hover + *
 {
     filter: brightness(0.6);
     transform: translateZ(150px);
     transform: rotateY(20deg);
 }
-
+/* This will get the element 2 to the RIGHT of the hovered element */
 .list .item:hover + * + *
 {
     filter: brightness(0.3);
